@@ -14,28 +14,12 @@ from tests.data.int_vs_number import (
     ],
 )
 def test_compair(schema, expected_output):
+    """JSON schema may contain type number and type integer;
+    if type == integer corresponding object of formIo will get key "integer"=""
+    in validate dict; otherwise this key will not be included.
+    """
     assert (
         convert_json_schema_to_py(schema)["components"][0]["validate"].get("integer")
         == expected_output
     )
-
-
-if __name__ == "__main__":
-    pass
-
-"""
-{'components': [{'key': 'huisnummer', 'label': 'home number', 
-'description': None, 
-'validate': {'required': True, 'pattern': None, 'max': None, 'min': None, 'integer': None, 'step': None}, 
-'defaultValue': None, 
-'type': 'number'}]}
-
-
-{'components': [{'key': 'temp', 'label': 'Temp today', 
-'description': "Check if it's sunny", 
-'validate': {'required': False, 'pattern': None, 'max': None, 'min': None, 'integer': None, 'step': None}, 
-'defaultValue': None, 
-'type': 'number'}]}
-
-
-"""
+    assert convert_json_schema_to_py(schema)["components"[0]["validate"]]
