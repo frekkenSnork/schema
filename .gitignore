@@ -1,0 +1,8 @@
+
+env
+**/__pycache__
+*.pytest_cache
+*.pyc
+*__pycache__
+.vscode
+tests/__pycache__/__init__.cpython-39.pyc
