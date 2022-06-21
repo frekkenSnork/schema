@@ -31,6 +31,7 @@ class TextField(SingleField):
     def __str__(self) -> str:
         return "I am an instance of a TexField"
 
+
 class TextAreaField(SingleField):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -43,7 +44,7 @@ class TextAreaField(SingleField):
         )
 
     def __str__(self) -> str:
-        return "I am an instance of a TexField"        
+        return "I am an instance of a TexField"
 
 
 class DayField(SingleField):
@@ -82,26 +83,22 @@ class EmailField(SingleField):
 class NumberField(SingleField):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.type = "number" 
+        self.type = "number"
         is_int = kwargs["content"].get("type")
         self.validate.update(
-                {
-                    "max": kwargs.get("maximum"),
-                    "min": kwargs.get("minimum"),                    
-                    "step":'any'
-                }
-            ) 
-        if is_int=="integer":
-            self.validate.update({"integer":""})
+            {"max": kwargs.get("maximum"), "min": kwargs.get("minimum"), "step": "any"}
+        )
+        if is_int == "integer":
+            self.validate.update({"integer": ""})
 
-        ''' formio docs(js)   
+        """ formio docs(js)   
         validate: {
         min: '',
         max: '',
         step: 'any',
         integer: ''
         }
-        '''
+        """
 
 
 # N 1 user (should/can) choose 1 option(true/false) or many from diff oprions
@@ -122,21 +119,31 @@ class SelectBoxesField(SingleField):
         return "I am an instance of a Select boxES "
 
 
-
-# N 2 user (should/can) choose 1 option(true/false)
 class RadioField(SingleField):
+    # only one  option(true/false)
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.type = "radio"
+        self.validate.update(
+            {
+                "onlyAvailableItems": False,
+            }
+        )
 
     def __str__(self) -> str:
-        return "I am an instance of a Radio"
+        return "I am an instance of a Radio Button"
 
 
-class CheckBoxField(SingleField):
+class SelectField(SingleField):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.type = "checkbox"
+        self.type = "select"
+        self.validate.update(
+            {
+                "onlyAvailableItems": False,
+            }
+        )
+
 
 # class UrlField(SingleField):
 #     def __init__(self, **kwargs):
@@ -162,8 +169,6 @@ class CheckBoxField(SingleField):
 
 #     def __str__(self) -> str:
 #         return "I am an instance of a Password"
-
-
 
 
 if __name__ == "__main__":

@@ -3,7 +3,6 @@ from src.entry import convert_json_schema_to_py
 from tests.data.int_vs_number import (
     integer_schema,
     number_schema,
-    
 )
 
 
@@ -12,12 +11,13 @@ from tests.data.int_vs_number import (
     [
         (integer_schema, ""),
         (number_schema, None),
-        
     ],
 )
-def test_compair(schema, expected_output):    
-    assert convert_json_schema_to_py(schema)["components"][0]["validate"].get("integer") == expected_output
-    
+def test_compair(schema, expected_output):
+    assert (
+        convert_json_schema_to_py(schema)["components"][0]["validate"].get("integer")
+        == expected_output
+    )
 
 
 if __name__ == "__main__":

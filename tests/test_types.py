@@ -7,7 +7,7 @@ from tests.data.singles import (
     email_schema,
     time_schema,
     date_time_schema,
-    textarea_schema
+    textarea_schema,
 )
 
 
@@ -20,7 +20,7 @@ from tests.data.singles import (
         (email_schema, "email"),
         (time_schema, "time"),
         (date_time_schema, "datetime"),
-        (textarea_schema,"textarea")
+        (textarea_schema, "textarea"),
     ],
 )
 def test_simple(schema, expected_output):

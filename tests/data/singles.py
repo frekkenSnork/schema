@@ -49,7 +49,7 @@ text_schema = {
             "type": "string",
             "pattern": "^[A-Z0-9][A-Z0-9]?[A-Z0-9]?-[A-Z0-9][A-Z0-9]?[A-Z0-9]?-[A-Z0-9][A-Z0-9]?[A-Z0-9]?$",
             "description": "Kenteken van het voertuig waarvoor de aanvraag wordt gedaan.",
-            "maxLength":250,
+            "maxLength": 250,
             "examples": ["XX-11-YY"],
         }
     },
