@@ -25,7 +25,3 @@ from tests.data.singles import (
 )
 def test_simple(schema, expected_output):
     assert convert_json_schema_to_py(schema)["components"][0]["type"] == expected_output
-
-
-if __name__ == "__main__":
-    pass

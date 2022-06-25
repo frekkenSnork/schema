@@ -22,4 +22,3 @@ def test_compair(schema, expected_output):
         convert_json_schema_to_py(schema)["components"][0]["validate"].get("integer")
         == expected_output
     )
-    assert convert_json_schema_to_py(schema)["components"[0]["validate"]]
